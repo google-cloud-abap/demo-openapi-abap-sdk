@@ -1,0 +1,76 @@
+swagger: '2.0'
+info:
+  title: Shipping Status API
+  description: API for retrieving the shipping status of an order. 
+  version: v1
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /shipping_status:
+    post:
+      summary: Retrieve shipping status
+      operationId: getShippingStatus
+      x-google-backend:
+        address: 'https://<your-cloud-function-region>-<your-project-id>.cloudfunctions.net/shipping_status'  #TODO: Replace with the URL of your deployed Cloud Function.
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/ShippingStatusRequest"
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: "#/definitions/ShippingStatusResponse"
+        '400':
+          description: Bad Request - Missing tracking_id
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Error message indicating the missing tracking_id
+
+definitions:
+  ShippingStatusRequest:
+    type: object
+    properties:
+      tracking_id:
+        type: string
+        description: The unique identifier for the shipment
+      carrier:
+        type: string
+        description: The name of the shipping carrier (e.g., FedEx, UPS, DHL)
+  ShippingStatusResponse:
+    type: object
+    properties:
+      tracking_id:
+        type: string
+        description: The unique identifier for the shipment
+      status:
+        type: string
+        description: Current status of the shipment (e.g., "In transit", "Delivered", "Pending")
+      estimated_delivery_date:
+        type: string
+        format: date
+        description: Estimated date of delivery
+      location:
+        type: string
+        description: Current location of the shipment
+      events:
+        type: array
+        items:
+          $ref: "#/definitions/ShippingEvents" 
+  ShippingEvents:
+    type: object
+    properties:
+      timestamp:
+        type: string
+        format: date-time
+        description: Timestamp of the event
+      event:
+        type: string
+        description: Description of the event

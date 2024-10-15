@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_SHIPPING_STATUS_API</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Shipping status API</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_000</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>ShippingStatusRequest</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_002</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>ShippingEvents</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_003</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>ShippingStatusResponse</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_005</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>getShippingStatus_400_response</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
